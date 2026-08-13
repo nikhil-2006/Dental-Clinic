@@ -1,0 +1,38 @@
+[
+  {
+    "bookingId": "ANAND-912346",
+    "patientName": "Nitesh",
+    "phone": "Bharadwaj",
+    "email": "nituroni9@gmail.com",
+    "service": "General Consultation & Checkup",
+    "preferredDate": "2026-08-28",
+    "preferredTime": "10:30 AM",
+    "status": "Confirmed",
+    "createdAt": "2026-08-12T19:58:15.556Z",
+    "emailSent": true
+  },
+  {
+    "bookingId": "ANAND-810735",
+    "patientName": "KATRU NIKHIL",
+    "phone": "+919959811406",
+    "email": "dullasaicharan2612@gmail.com",
+    "service": "General Consultation & Checkup",
+    "preferredDate": "2026-08-20",
+    "preferredTime": "10:30 AM",
+    "status": "Confirmed",
+    "createdAt": "2026-08-12T19:48:46.535Z",
+    "emailSent": true
+  },
+  {
+    "bookingId": "ANAND-857821",
+    "patientName": "KATRU NIKHIL",
+    "phone": "+919959811406",
+    "email": "jjnikhil113@gmail.com",
+    "service": "General Consultation & Checkup",
+    "preferredDate": "2026-08-13",
+    "preferredTime": "10:30 AM",
+    "status": "Confirmed",
+    "createdAt": "2026-08-12T19:41:13.868Z",
+    "emailSent": true
+  }
+]
