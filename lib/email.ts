@@ -28,12 +28,12 @@ export function generateAppointmentEmailHtml(data: EmailPayload): string {
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Appointment Confirmation - Dr. Anand's Dental Clinic</title>
+  <title>Appointment Confirmation - Gorantla Multi Speciality Dental Clinic</title>
   <style>
     body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f4f6f8; margin: 0; padding: 20px; color: #333; }
     .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
     .header { background-color: #0f172a; padding: 30px 24px; text-align: center; color: #ffffff; }
-    .header h1 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+    .header h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
     .header p { margin: 6px 0 0 0; font-size: 13px; opacity: 0.8; }
     .content { padding: 32px 24px; }
     .badge { display: inline-block; background-color: #dcfce7; color: #166534; font-weight: 600; font-size: 12px; padding: 6px 14px; border-radius: 20px; margin-bottom: 20px; }
@@ -52,14 +52,14 @@ export function generateAppointmentEmailHtml(data: EmailPayload): string {
 <body>
   <div class="container">
     <div class="header">
-      <h1>Dr. Anand's Dental Clinic</h1>
-      <p>Ayya Koneru, Vizianagaram</p>
+      <h1>GORANTLA MULTI SPECIALITY DENTAL CLINIC</h1>
+      <p>Satya Sai Complex, Raja Bazaar / A.G. Road, Vizianagaram, AP 535002</p>
     </div>
     <div class="content">
       <div class="badge">✓ Appointment Confirmed</div>
       <div class="greeting">Hello ${data.patientName},</div>
       <p class="intro">
-        Thank you for choosing Dr. Anand's Dental Clinic. Your appointment has been successfully confirmed. Below are your scheduled details:
+        Thank you for choosing Gorantla Multi Speciality Dental Clinic. Your appointment has been successfully confirmed. Below are your scheduled details:
       </p>
 
       <div class="card">
@@ -92,19 +92,19 @@ export function generateAppointmentEmailHtml(data: EmailPayload): string {
 
       <div class="clinic-box">
         <strong>📍 Clinic Location:</strong><br>
-        Besides Gayatri Hospital, Ayyakoneru Gumchi Road, Vizianagaram<br>
-        <strong>📞 Helpline:</strong> +91 891 255 0148 (Mon–Sun)
+        Satya Sai Complex, Raja Bazaar / A.G. Road, Vizianagaram, Andhra Pradesh 535002<br>
+        <strong>📞 Helpline:</strong> +91 89222 31777
       </div>
 
       <p style="font-size: 12px; color: #64748b; line-height: 1.5;">
         <strong>Patient Instructions:</strong><br>
         • Please arrive 5-10 minutes prior to your time slot.<br>
         • Bring any previous dental records, X-rays, or prescriptions if applicable.<br>
-        • For any query or rescheduling, contact our clinic helpline.
+        • For any query or rescheduling, contact our clinic helpline at +91 89222 31777.
       </p>
     </div>
     <div class="footer">
-      © 2026 Dr. Anand's Dental Clinic • Vizianagaram
+      © 2026 GORANTLA MULTI SPECIALITY DENTAL CLINIC • Vizianagaram
     </div>
   </div>
 </body>
@@ -127,7 +127,7 @@ export async function sendAppointmentEmail(data: EmailPayload) {
   const smtpHost = process.env.SMTP_HOST || 'smtp.gmail.com'
   const smtpPort = parseInt(process.env.SMTP_PORT || '465')
   const smtpSecure = process.env.SMTP_SECURE === 'false' ? false : true
-  const smtpFrom = process.env.SMTP_FROM || `"Dr. Anand's Dental Clinic" <${smtpUser || 'no-reply@dranandsdental.com'}>`
+  const smtpFrom = process.env.SMTP_FROM || `"Gorantla Dental Clinic" <${smtpUser || 'no-reply@gorantladental.com'}>`
 
   // Send via live Nodemailer SMTP if credentials are provided in .env / .env.local
   if (smtpUser && smtpPass && smtpUser !== 'your-email@gmail.com') {

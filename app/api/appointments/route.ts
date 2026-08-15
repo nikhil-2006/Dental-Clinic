@@ -101,7 +101,7 @@ export async function POST(request: Request) {
 
     const bookings = getBookings()
 
-    // Check if slot is already booked for Dr. Anand on that date
+    // Check if slot is already booked on that date
     const existingSlot = bookings.find(
       (b) => b.preferredDate === preferredDate && b.preferredTime === preferredTime && b.status === 'Confirmed'
     )
@@ -117,7 +117,7 @@ export async function POST(request: Request) {
     }
 
     const randomNum = Math.floor(100000 + Math.random() * 900000)
-    const bookingId = `ANAND-${randomNum}`
+    const bookingId = `GORANTLA-${randomNum}`
 
     const newBooking: BookingRecord = {
       bookingId,
@@ -137,13 +137,13 @@ export async function POST(request: Request) {
     saveBookings(bookings)
 
     // Trigger Email Dispatch
-    const recipientEmail = email && email.trim() ? email.trim() : `${patientName.toLowerCase().replace(/\s+/g, '')}@patient.dranandsdental.com`
+    const recipientEmail = email && email.trim() ? email.trim() : `${patientName.toLowerCase().replace(/\s+/g, '')}@patient.gorantladental.com`
     
     let emailRecord = null
     try {
       emailRecord = await sendAppointmentEmail({
         to: recipientEmail,
-        subject: `Appointment Confirmed (${bookingId}) - Dr. Anand's Dental Clinic`,
+        subject: `Appointment Confirmed (${bookingId}) - Gorantla Multi Speciality Dental Clinic`,
         bookingId,
         patientName: patientName.trim(),
         phone: phone.trim(),

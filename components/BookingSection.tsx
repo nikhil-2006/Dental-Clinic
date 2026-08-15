@@ -13,9 +13,10 @@ import {
   Loader2,
   Mail,
   MapPin,
+  Navigation,
   Phone,
   Search,
-  Sparkles,
+  MessageCircle,
   Sun,
   Moon,
   X,
@@ -179,7 +180,7 @@ export default function BookingSection() {
     setSearchResults([])
 
     try {
-      const isBookingId = searchQuery.trim().toUpperCase().startsWith('ANAND-')
+      const isBookingId = searchQuery.trim().toUpperCase().startsWith('GORANTLA-') || searchQuery.trim().toUpperCase().startsWith('ANAND-')
       const param = isBookingId
         ? `bookingId=${encodeURIComponent(searchQuery.trim())}`
         : `phone=${encodeURIComponent(searchQuery.trim())}`
@@ -264,6 +265,10 @@ export default function BookingSection() {
     setCalendarOpen(false) // Automatically close popup on slot selection
   }
 
+  const directionsUrl = "https://www.google.com/maps/search/?api=1&query=Gorantla+Multi+Speciality+Dental+Clinic+Satya+Sai+Complex+Raja+Bazaar+AG+Road+Vizianagaram+Andhra+Pradesh+535002"
+  const whatsappUrl = "https://wa.me/918922231777?text=Hello%20Gorantla%20Multi%20Speciality%20Dental%20Clinic,%20I%20would%20like%20to%20inquire%20about%20an%20appointment."
+  const callUrl = "tel:+918922231777"
+
   return (
     <section id="appointment" className="mx-3 sm:mx-5 mb-16 rounded-[1.5rem] sm:rounded-[2rem] bg-secondary px-4 py-10 sm:px-10 sm:py-16 lg:mx-auto lg:max-w-7xl lg:px-16 lg:py-20">
       <div className="grid gap-8 lg:grid-cols-[.9fr_1.1fr] lg:items-start">
@@ -276,29 +281,59 @@ export default function BookingSection() {
             Your best smile starts with a <em className="text-primary">conversation.</em>
           </h2>
           <p className="mt-3 sm:mt-4 text-xs sm:text-sm leading-relaxed text-muted-foreground">
-            Schedule your appointment with Dr. Anand. A confirmation email will be automatically dispatched to your inbox.
+            Schedule your appointment with Gorantla Multi Speciality Dental Clinic. A confirmation email will be automatically dispatched to your inbox.
           </p>
 
+          {/* Action Buttons: Call the Clinic, WhatsApp, Get Directions */}
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            <a
+              href={callUrl}
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-xs font-semibold text-primary-foreground shadow-sm transition-all hover:opacity-95"
+            >
+              <Phone size={15} /> Call the Clinic
+            </a>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-4 py-2.5 text-xs font-semibold text-white shadow-sm transition-all hover:bg-emerald-700"
+            >
+              <MessageCircle size={15} /> WhatsApp
+            </a>
+            <a
+              href={directionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2.5 text-xs font-semibold text-foreground transition-all hover:border-primary hover:text-primary"
+            >
+              <Navigation size={15} className="text-primary" /> Get Directions
+            </a>
+          </div>
+
           <div className="mt-6 sm:mt-8 space-y-3.5 text-xs sm:text-sm text-muted-foreground">
-            <p className="flex items-start gap-2.5">
+            <div className="flex items-start gap-2.5">
               <MapPin className="mt-0.5 shrink-0 text-primary" size={17} />
               <span>
-                <strong className="text-foreground font-medium block">Clinic Location:</strong>
-                Besides Gayatri Hospital, Ayyakoneru Gumchi Road, Vizianagaram
+                <strong className="text-foreground font-medium block">Clinic Address:</strong>
+                Satya Sai Complex, Raja Bazaar / A.G. Road,<br />
+                Vizianagaram, Andhra Pradesh 535002
               </span>
-            </p>
-            <p className="flex items-center gap-2.5">
+            </div>
+            <div className="flex items-center gap-2.5">
               <Phone className="shrink-0 text-primary" size={17} />
               <span>
-                <strong className="text-foreground font-medium">Phone / Helpline:</strong> +91 891 255 0148
+                <strong className="text-foreground font-medium">Phone / Helpline:</strong>{' '}
+                <a href={callUrl} className="text-foreground hover:text-primary font-semibold underline">
+                  +91 89222 31777
+                </a>
               </span>
-            </p>
-            <p className="flex items-center gap-2.5">
+            </div>
+            <div className="flex items-center gap-2.5">
               <Clock className="shrink-0 text-primary" size={17} />
               <span>
                 <strong className="text-foreground font-medium">Doctor Availability:</strong> Mon–Sun (By Appointment)
               </span>
-            </p>
+            </div>
           </div>
 
           {/* Fully Responsive Mobile Tab Toggle Buttons */}
@@ -333,7 +368,7 @@ export default function BookingSection() {
                     <CheckCircle2 size={22} className="shrink-0 text-emerald-600" />
                     <div>
                       <h3 className="font-semibold text-sm sm:text-base">Appointment Successfully Confirmed!</h3>
-                      <p className="text-xs">Your visit with Dr. Anand has been scheduled.</p>
+                      <p className="text-xs">Your visit with Gorantla Dental Clinic has been scheduled.</p>
                     </div>
                   </div>
 
@@ -388,8 +423,8 @@ export default function BookingSection() {
                   </div>
 
                   <p className="text-xs text-muted-foreground leading-relaxed">
-                    Please arrive 5–10 minutes prior to your slot at Ayya Koneru, Vizianagaram. Need to change? Call{' '}
-                    <strong className="text-foreground">+91 891 255 0148</strong>.
+                    Please arrive 5–10 minutes prior to your slot at Satya Sai Complex, Raja Bazaar / A.G. Road, Vizianagaram. Need to change? Call{' '}
+                    <strong className="text-foreground">+91 89222 31777</strong>.
                   </p>
 
                   <button
@@ -431,7 +466,7 @@ export default function BookingSection() {
                     </select>
                   </div>
 
-                  {/* SINGLE UNIFIED POPUP CALENDAR SELECTION FIELD - Fully Mobile Responsive */}
+                  {/* SINGLE UNIFIED POPUP CALENDAR SELECTION FIELD */}
                   <div>
                     <label className="block text-xs font-semibold text-foreground mb-1.5">
                       Appointment Date &amp; Free Slot <span className="text-primary">*</span>
@@ -487,7 +522,7 @@ export default function BookingSection() {
                       <input
                         type="tel"
                         required
-                        placeholder="+91 9876543210"
+                        placeholder="+91 89222 31777"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40"
@@ -552,7 +587,7 @@ export default function BookingSection() {
             <div className="space-y-5">
               <div className="border-b border-border pb-3">
                 <h3 className="font-serif text-xl sm:text-2xl text-foreground">Find Your Booking</h3>
-                <p className="text-xs text-muted-foreground mt-1">Enter your Booking Reference ID (e.g. ANAND-123456) or Phone number.</p>
+                <p className="text-xs text-muted-foreground mt-1">Enter your Booking Reference ID (e.g. GORANTLA-123456) or Phone number.</p>
               </div>
 
               <form onSubmit={handleLookup} className="flex flex-col sm:flex-row gap-2">
@@ -608,7 +643,7 @@ export default function BookingSection() {
         </div>
       </div>
 
-      {/* POPUP CALENDAR MODAL / OVERLAY - Fully Mobile Responsive & Touch Friendly */}
+      {/* POPUP CALENDAR MODAL / OVERLAY */}
       {calendarOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-3 sm:p-4 overflow-y-auto">
           <div className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto rounded-2xl bg-card p-4 sm:p-6 shadow-2xl border border-border animate-in fade-in zoom-in duration-200">
@@ -619,7 +654,7 @@ export default function BookingSection() {
                   <CalendarIcon className="text-primary shrink-0" size={18} /> Popup Calendar &amp; Slots
                 </h3>
                 <p className="text-[11px] sm:text-xs text-muted-foreground mt-0.5">
-                  Pick date &amp; tap a free slot for Dr. Anand
+                  Pick date &amp; tap a free slot for Specialist
                 </p>
               </div>
               <button
